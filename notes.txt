@@ -1,0 +1,36 @@
+// Single page application since only two pages
+//   2   - May change if decide to add a login system
+//   3 
+//   4 Get the structure of the data returned by the api before writing any components
+//   5 to handle it
+//   6 
+//   7 If single page app is it possible to go back to the same page once the page
+//   8 refreshes ? i.e. store in localStorage what page you were on ? This would be
+//   9 cool.
+//  10 
+//  11 Single page application means that api call does not have to be remade
+//  12 everytime switching between pages. At least this is my aim.
+//  13 
+//  14 See if possible to cache api data when offline.
+//  15 
+//  16 SPA has a cross-site scripting (XSS) and allows attackers to inject client-side
+//  17 scripts into the web application.a - check how to overcome this.
+//  18 
+//  19 Slow: While the user experience of SPAs on runtime is fast, it is slower to
+//  20 download and can also be slowed down if there are memory leaks in JavaScript.
+//  21 It is hence not suitable for very large applications with a lot of data. - make
+//  22 sure there are no memory leaks.
+//  23 
+//  24 Can mention other advantages and disadvantages for SPA possibly.
+//  25 
+//  26 Will use BrowserRouter instead of HashRouter - probably explain why.
+//  27 
+//  28 make sure with SPA that users can:
+//  29 The URL displayed in the address bar always reflects the thing that they are viewing.
+//  30 They can use the browser's back and forward buttons...successfully.
+//  31 They can navigate to a particular view (aka deep link) directly using the appropriate URL.
+//  32 
+//  33 Make sure to do the html title!!
+//  34 
+//  35 Add some spinners for loading
+//  36 
