@@ -4,11 +4,19 @@ import './stylesheets/Toolbar.css'
 import companyLogo from './images/Josephmark 1.png';
 import ashPicture from './images/Ellipse 27ash.jpg';
 import PokeDex from './components/PokeDex';
+import Party from './components/Party';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 // TODO fix up image path - maybe host it somewhere. Read that react guide about best practices. Pretty sure the above isnt a best practice.
-// TODO - make algotrith / api calls to match up pokemon with their evolution chain.
+
 const App = () => {
   const [pokemon, setPokemon] = useState([]);
+  const [party, setParty] = useState([]);
   useEffect(() => {
     const asyncDataLoad = async () => {
       const results = await firstGenerationPokemon();
@@ -39,21 +47,42 @@ const App = () => {
   };
 
   return (
-    <>
+    <Router>
       <div className="topnav">
         <div className="container">
           <a className="logo" href="https://www.josephmark.com.au/">
             <img src={companyLogo} alt="Joseph Mark logo"/>
           </a>
           <div className="right-section">
-            <a className="nav-menu-item" href="/pokedex">Pokedex</a>
-            <a className="nav-menu-item" href="/party">Party</a>
+            <Link className="nav-menu-item" to="/pokedex">Pokedex</Link>
+            <Link className="nav-menu-item" to="/party">Party</Link>
             <img className="ash-picture nav-menu-item" src={ashPicture} alt="Ash"/>
           </div>
         </div>
       </div>
-      <PokeDex pokemon={pokemon}/>
-    </>
+      <Switch>
+        <Route path="/pokedex">
+          <PokeDex
+            pokemon={pokemon}
+            party={party}
+            setParty={setParty}
+          />
+        </Route>
+        <Route path="/party">
+          <Party
+            party={party}
+            setParty={setParty}
+          />
+        </Route>
+        <Route path="/">
+          <PokeDex
+            pokemon={pokemon}
+            party={party}
+            setParty={setParty}
+          />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
